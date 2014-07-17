@@ -1,4 +1,4 @@
-Box Octo Model
+Box Octo Model [![Build Status](https://travis-ci.org/safjanowski/box-octo-model.svg?branch=master)](https://travis-ci.org/safjanowski/box-octo-model)
 ===============
 
 Box octo model – add, remove, update state of elements inside box.
@@ -28,4 +28,5 @@ Instalation
 Tests
 -----
 
-* `make test` – executes **Mocha** with flag `-w` for watching for changes.
+* `make test` – executes **Mocha**.
+* `make continous` – executes **Mocha** with flag `-w` for watching for changes.
