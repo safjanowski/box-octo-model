@@ -6,7 +6,7 @@
   var assert = require('assert'),
     Box = require('../box')();
 
-  describe('box', function() {
+  describe('Box container with bulps', function() {
 
     var box;
 
@@ -15,42 +15,42 @@
       assert.equal(box.listElements().length, 0);
     });
 
-    it('.listElements() – box initialy has 0 products inside', function() {
+    it('.listElements() – box initialy has 0 elements inside', function() {
       assert.equal(box.listElements().length, 0);
     });
 
     it('.addElement() – adds product to box', function() {
-      var productA = {
+      var elementA = {
           id: 'A',
           state: 'off'
         },
-        productB = {
+        elementB = {
           id: 'B',
           state: 'off'
         };
 
-      box.addElement(productA);
-      box.addElement(productB);
+      box.addElement(elementA);
+      box.addElement(elementB);
 
       assert.equal(box.listElements().length, 2);
     });
 
     it('.addElement() – if product exists – update it', function() {
-      var productA = {
+      var elementA = {
           id: 'A',
           state: 'off'
         },
-        productB = {
+        elementB = {
           id: 'B',
           state: 'off'
         },
-        productC = {
+        elementC = {
           id: 'A',
           state: 'on'
         };
 
-      box.addElement(productA);
-      box.addElement(productB);
+      box.addElement(elementA);
+      box.addElement(elementB);
 
       assert.equal(box.listElements().length, 2);
       assert.deepEqual(box.listElements(), [{
@@ -61,7 +61,7 @@
         state: 'off'
       }]);
 
-      box.addElement(productC);
+      box.addElement(elementC);
       assert.equal(box.listElements().length, 2);
       assert.deepEqual(box.listElements(), [{
         id: 'A',
@@ -72,32 +72,31 @@
       }]);
     });
 
-    it('.remove() – removes added products', function() {
-      var productA = {
+    it('.remove() – removes added elements', function() {
+      var elementA = {
         id: 'A',
         state: 'off'
       };
 
-      box.addElement(productA);
+      box.addElement(elementA);
       assert.equal(box.listElements().length, 1);
 
-      box.remove(productA);
+      box.remove(elementA);
       assert.equal(box.listElements().length, 0);
     });
 
-    it('.setState() – removes added products', function() {
+    it('.setState() – removes added elements', function() {
       var elementId = 'A';
 
-      var productA = {
+      var elementA = {
         id: elementId,
         state: 'off'
       };
 
-      box.addElement(productA);
+      box.addElement(elementA);
       box.setState(elementId, 'on');
 
       assert.equal(box.getElementById(elementId).state, 'on');
-
     });
   });
 

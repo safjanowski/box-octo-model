@@ -28,11 +28,7 @@ var box = function() {
     }
 
     function updateElement(element) {
-      for (var item in that.elements) {
-        if (that.elements[item].id === element.id) {
-          that.elements[item].state = element.state;
-        }
-      }
+      that.setState(element.id, element.state);
     }
 
     function addElement(element) {
@@ -79,11 +75,7 @@ var box = function() {
   };
 
   Box.prototype.setState = function(id, state) {
-    for (var product in this.elements) {
-      if (this.elements[product].id === id) {
-        this.elements[product].state = state;
-      }
-    }
+    this.getElementById(id).state = state;
   };
 
   Box.prototype.getElementById = function(id) {
